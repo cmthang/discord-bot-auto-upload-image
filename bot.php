@@ -35,16 +35,25 @@ echo "Bot executed \n";
 // }
 
 //Set image to post - replace path_placeholder with path to the file that stores the images.
-// $image = "path_placeholder".$index.".png";
-$image = "/home/thang/Desktop/'hoa son luan code 2.png'";
-// $image = "Woa !!!";
+$title = "...";
+// $image = '/home/thang/Desktop/2.png';
+// $image = "https://imgur.com/t/funny/ocKMJ1h";
+// $image = "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-volt-upside-down-pendant-yellow-gold-jewelry--Q93868_PM2_Front%20View.png?wid=656&hei=656";
 
 // Post to Discord - replace webhook_placeholder with your webhook.
 $webhook = "https://discord.com/api/webhooks/1024255700651757578/U9GqXIQ-WeBtYorKVcPKsHUQuPl4r7OFrJ4Z1epiozemnhSRzW1Yu9ccJKdToxvL9lYl";
-// $webhook = "https://discord.com/channels/@me/1024174055525462026/1024174586868285470";
 $message = json_encode([
-  "content" => $image,  
+  "content" => $title,  
   "username" => "Captain Bot",
+  "embeds" => [
+    [
+      'image' => 
+        [
+          'url' => 'https://i.imgur.com/ZGPxFN2.jpg'
+          // 'url' => 'attachment://http://localhost:96/discord-image-bot/2.png' 
+        ]
+    ]
+  ]
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
 $send = curl_init($webhook);
@@ -55,6 +64,7 @@ curl_setopt($send, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($send, CURLOPT_HEADER, 0);
 curl_setopt($send, CURLOPT_RETURNTRANSFER, 1);
 $output = curl_exec($send);
+echo $output;
 curl_close($send);
 
 // Increment index and save
