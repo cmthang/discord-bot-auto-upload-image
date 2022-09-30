@@ -1,6 +1,9 @@
 <?php 
-  $path_Folder_Linux = '/home/thang/Desktop'; 
-  
+
+  $IMAGE_FOLDER = getenv('STORAGE_PATH');
+  echo $IMAGE_FOLDER;
+
+  $path_Folder_Linux = ".";
   $folderFiles = array_diff(scandir($path_Folder_Linux), array('.', '..')); 
   
   $jpg = ".jpg";
@@ -30,11 +33,14 @@
   }
 
   $count_true=1;
-  foreach ($true as $item){
-    uploadDiscord($item, $count_true);
-    $count_true++;
-  }
+  // foreach ($true as $item){
+  //   uploadDiscord($item, $count_true);
+  //   $count_true++;
+  // }
   
+    $file =  __FILE__;
+
+    // echo ($file);
 
 function uploadDiscord($path_file, $count_true){  
     $curl = curl_init();
