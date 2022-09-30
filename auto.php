@@ -28,7 +28,7 @@ function uploadDiscord($nameFile)
     $curl = curl_init();
 
     $str_file = $GLOBALS['pathFolder']."".$nameFile;
-    $str_content = $GLOBALS['titleName'].' (Upload - '.$GLOBALS['sendImage'].' Images)';
+    $str_content = '('.date("d-m-Y h:i:sa").')'.$GLOBALS['titleName'].' (Upload - '.$GLOBALS['sendImage'].' Images)';
 
     curl_setopt_array($curl, array(
     CURLOPT_URL => $GLOBALS['webhooksApi'],
