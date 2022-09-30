@@ -1,32 +1,30 @@
 <?php 
 
-    // $file =  __FILE__;
-
-    // echo ($file);
-
-
+  $pathFolder = "/home/thang/Desktop/";
+  $webhooksApi = 'https://discord.com/api/webhooks/1024255700651757578/U9GqXIQ-WeBtYorKVcPKsHUQuPl4r7OFrJ4Z1epiozemnhSRzW1Yu9ccJKdToxvL9lYl';
   $titleName = 'The King';
   $botName = 'Captain Bot';
-  $webhooksApi = 'https://discord.com/api/webhooks/1024255700651757578/U9GqXIQ-WeBtYorKVcPKsHUQuPl4r7OFrJ4Z1epiozemnhSRzW1Yu9ccJKdToxvL9lYl';
-  $pathFolder = "/home/thang/Desktop/";
+  
   $countImage = 0;
   $sendImage = 0;
 
   $arrName = countImage($pathFolder);
 
 
-  foreach ($arrName as $nameFile)
-  {
-    $sendImage++;
-    uploadDiscord($nameFile);
-  }
+  // foreach ($arrName as $nameFile)
+  // {
+  //   $sendImage++;
+  //   uploadDiscord($nameFile);
+  // }
+
+  echo ("End Bot.\n");
+  echo ("Bye Bye!");
   
 
 //Using webhook  
 function uploadDiscord($nameFile)
 { 
     $curl = curl_init();
-
     $str_file = $GLOBALS['pathFolder']."".$nameFile;
     $str_content = '('.date("d-m-Y h:i:sa").')'.$GLOBALS['titleName'].' (Upload - '.$GLOBALS['sendImage'].' Images)';
 
@@ -60,10 +58,8 @@ function countImage($pathFolder)
 {
   $folderFiles = array_diff(scandir($pathFolder), array('.', '..')); 
   
-  $jpg = ".jpg";
-  $png = ".png";
-  $gif = ".gif";
-
+  $jpg = ".jpg"; $png = ".png";$gif = ".gif";
+  
   $true = array();
 
   foreach($folderFiles as $item){
@@ -80,7 +76,6 @@ function countImage($pathFolder)
       $GLOBALS['countImage']++;
     }
   }
-
   return $true;
 }
 
