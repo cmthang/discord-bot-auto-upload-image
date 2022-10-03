@@ -14,7 +14,6 @@
 $pathFolderErr = $webhookApiErr = $titleNameErr = $botNameErr = "";
 $pathFolder = $webhookApi = $titleName = $botName = "";
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["pathFolder"])) {
     $pathFolderErr = "Path Folder is required";
@@ -50,7 +49,7 @@ function test_input($data) {
 <div style="text-align: center;">
   <h2>Nice To Upload Pretty</h2>
 </div>
-<div style="width:30%; text-align:center; margin-left:35%; ">
+<div style="width:40%; text-align:center; padding-left: 30%;">
   <p><span class="error">* required field</span></p>
   <p><span class="error">  C:\\Users\\Administrator\\Desktop\\upload\\ </span></p>
 
@@ -97,9 +96,6 @@ function test_input($data) {
 
             $arrName = countImage($pathFolder);
 
-            $countImage = count($arrName);
-            echo $countImage;
-
             validate();
 
             foreach ($arrName as $nameFile)
@@ -141,14 +137,9 @@ function test_input($data) {
         //Using webhook  
         function uploadDiscord($nameFile)
         { 
-            if($GLOBALS['sendImage']%30==0)
-            {
-              sleep(60);
-            }
-
             $curl = curl_init();
             $str_file = $GLOBALS['pathFolder']."".$nameFile;
-            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            date_default_timezone_get();
             $str_content = '('.date("l d-m-Y h:i:sa").')'.$GLOBALS['titleName'].' (Upload - '.$GLOBALS['sendImage'].' Images)';
     
             curl_setopt_array($curl, array(
@@ -181,7 +172,7 @@ function test_input($data) {
         {
             $folderFiles = array_diff(scandir($pathFolder), array('.', '..')); 
     
-            $jpg = ".jpg"; $png = ".png";$gif = ".gif";$jpeg = ".jpeg";
+            $jpg = ".jpg"; $png = ".png";$gif = ".gif";$jepg = ".jepg";
     
             $true = array();
     
@@ -198,7 +189,7 @@ function test_input($data) {
                   array_push($true,$item);
                   $GLOBALS['countImage']++;
               }
-              if (strlen(strstr($item, $jpeg))>0){
+              if (strlen(strstr($item, $jepg))>0){
                 array_push($true,$item);
                 $GLOBALS['countImage']++;
               }

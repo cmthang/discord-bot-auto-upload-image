@@ -2,14 +2,16 @@
 
 ## Intro
 
-This bot allows you to post images to a discord channel via a webhook. A full video tutorial on how to use this bot is available here: https://youtu.be/hfnEOyyOcnw
 
 ## Setup
 
-To setup this bot you need to replace the placeholders in the script with your information. Hence, you will need the following information:
-- Name, username, and password of your server
-- MySQL Database
-- Discord webhook
+Step 1: Install Xampp and start Localhost .
+Step 2: Copy file app.php to htdocs.
+Step 3: Run file app.php
+Step 4: Copy path folder (with Window - ex: C:\\Users\\Administrator\\Desktop\\upload\\)
+Step 5: Copy discord hook. 
+Step 6: Submit.
 
-In addition, you should have a folder with images that you want to post to your discord. The images in the folder should be numbered starting from 0, i.e., "0.png" would be the first image followed by 1.png, 2.png and so on.
+If excute limit time: ini_set('max_execution_time', 120); // 120 (seconds) = 2 Minutes
+-With xampp: in xampp\php type: Configuration settings. ($cfg['ExecTimeLimit'] = 600000;) :))
 
