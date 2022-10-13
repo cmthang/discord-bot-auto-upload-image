@@ -4,7 +4,8 @@
 Create by Thang - k391-X
 ## Resources
 -How to use hook Discord:
-https://birdie0.github.io/discord-webhooks-guide/index.html## Setup
+https://birdie0.github.io/discord-webhooks-guide/index.html
+## Setup
 
 Step 1: Install Xampp and start Localhost .
 Step 2: Copy file app.php to htdocs.
